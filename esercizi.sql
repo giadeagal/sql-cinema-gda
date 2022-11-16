@@ -15,7 +15,12 @@ SELECT titolo, genere, nazionalita, annoproduzione
 FROM film
 WHERE 
     (film.nazionalita LIKE '_iapponese'
-OR
-    film.nazionalita LIKE '_rancese')
+    OR
+        film.nazionalita LIKE '_rancese')
 AND
     film.annoproduzione > 1990
+AND
+    film.genere LIKE '%_antascienza%'
+
+/*4 - titolo dei film di fantascienza giapponesi prodotti dopo il 1990* e tutti i film francesi*/
+
