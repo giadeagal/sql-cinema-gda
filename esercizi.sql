@@ -109,3 +109,13 @@ FROM
         ON R.codattore = A.codattore
 WHERE A.nome = 'M. Mastroianni'
 AND A.nome = 'S. Loren'
+
+/*11- per ogni film in cui recita un attore francese, titolo del film e nome dell'attore*/
+SELECT film.titolo, A.nome
+FROM 
+    film
+    JOIN recita AS R
+        ON film.codfilm = R.codfilm
+    JOIN attori AS A
+        ON R.codattore = A.codattore
+WHERE A.nazionalita LIKE '_rancese';
