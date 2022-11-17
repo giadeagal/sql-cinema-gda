@@ -143,4 +143,7 @@ SELECT sum(sale.posti) AS totale
 FROM sale
 WHERE sale.citta = 'Pisa'
 
-/*15- numero totale di posti a Pisa*/
+/*15- per ogni città il numero delle sale*/
+SELECT sale.citta, sum(sale.posti) AS totale_posti
+FROM sale
+GROUP BY sale.citta
