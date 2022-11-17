@@ -147,3 +147,9 @@ WHERE sale.citta = 'Pisa'
 SELECT sale.citta, sum(sale.posti) AS totale_posti
 FROM sale
 GROUP BY sale.citta
+
+/*16- per ogni città il numero di sale con più di 60 posti*/
+SELECT sale.citta, count(*) AS tot_sale_grandi
+FROM sale
+WHERE sale.posti > 60
+GROUP BY sale.citta 
