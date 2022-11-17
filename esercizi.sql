@@ -54,7 +54,7 @@ WHERE
         FROM proiezioni AS P
         WHERE P.dataproiezione = '2004-12-25')
 
-/*7- titolo o genere dei film proiettati nelle sale di Napoli il giorno di natale del 2004*/
+/*7- titolo e genere dei film proiettati nelle sale di Napoli il giorno di natale del 2004*/
 SELECT film.titolo, film.genere
 FROM 
     film
@@ -66,3 +66,15 @@ WHERE
                 ON P.codsala = S.codsala
         WHERE P.dataproiezione = '2004-12-25'
         AND S.citta = 'Napoli')
+
+/*8- nomi delle sale di Napoli in cui il giorno di natale 2004 è stato proiettato un film con "R.Williams" */
+
+SELECT 
+  /*LAVOTI IN CORSO */
+FROM 
+    film 
+    JOIN recita 
+    ON film.codfilm = recita.codfilm 
+    JOIN attori 
+    ON recita.codattore = attori.codattore
+WHERE attori.nome = 'R. Williams'
