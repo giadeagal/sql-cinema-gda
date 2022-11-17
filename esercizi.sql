@@ -153,3 +153,9 @@ SELECT sale.citta, count(*) AS tot_sale_grandi
 FROM sale
 WHERE sale.posti > 60
 GROUP BY sale.citta 
+
+/*17- per ogni regista il numero di film diretti dopo il 1990*/
+SELECT F.regista, count(*) AS tot_film
+FROM film AS F
+WHERE F.annoproduzione > 1990
+GROUP BY F.regista
