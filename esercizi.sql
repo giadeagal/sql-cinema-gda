@@ -131,3 +131,8 @@ FROM
 WHERE sale.citta = 'Pisa'
 AND EXTRACT(MONTH FROM P.dataproiezione) = '01'
 AND EXTRACT(YEAR FROM P.dataproiezione) = '2005';
+
+/*13- numero di sale a Pisa con più di 60 posti*/
+SELECT count(*) AS num_sale_grandi_di_pisa
+FROM sale
+WHERE sale.posti > 60
