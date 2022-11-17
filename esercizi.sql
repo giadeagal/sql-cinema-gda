@@ -69,6 +69,7 @@ WHERE
 
 /*8- nomi delle sale di Napoli in cui il giorno di natale 2004 è stato proiettato un film con "R.Williams" */
 
+
 SELECT sale.nome
 FROM sale
 WHERE sale.codsala IN (
