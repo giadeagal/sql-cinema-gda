@@ -169,8 +169,19 @@ GROUP BY F.regista
 
 /*19- per ogni film di S.Spielberg, il titolo del film, il numero totale di proiezioni a Pisa  e l'incasso totale*/
 
-SELECT F.titolo, count(*) AS num_proiezioni_pisane, sum(P.incasso)*count(*) AS tot_incasso_pisano
-FROM film AS F join proiezioni as P on F.codfilm = P.codfilm join sale as S on S.codsala = p.codsala
-WHERE F.regista LIKE '%pielberg'
-AND S.citta = 'Pisa'
-GROUP BY F.titolo
+SELECT 
+    F.titolo, 
+    count(*) AS num_proiezioni_pisane,
+    sum(P.incasso)*count(*) AS tot_incasso_pisano
+FROM 
+    film AS F 
+    JOIN proiezioni AS P 
+        ON F.codfilm = P.codfilm 
+    JOIN sale AS S 
+        ON S.codsala = p.codsala
+WHERE 
+    F.regista LIKE '%pielberg'
+AND 
+    S.citta = 'Pisa'
+GROUP BY 
+    F.titolo
