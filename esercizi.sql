@@ -119,3 +119,15 @@ FROM
     JOIN attori AS A
         ON R.codattore = A.codattore
 WHERE A.nazionalita LIKE '_rancese';
+
+/*12- per ogni film che è stato proiettato a pisa nel gennaio 2005, titolo del film e nome della sala*/
+SELECT film.titolo, sale.nome
+FROM 
+    proiezioni AS P
+    JOIN film
+        ON P.codfilm = film.codfilm
+    JOIN sale
+        ON sale.codsala = P.codsala
+WHERE sale.citta = 'Pisa'
+AND EXTRACT(MONTH FROM P.dataproiezione) = '01'
+AND EXTRACT(YEAR FROM P.dataproiezione) = '2005';
