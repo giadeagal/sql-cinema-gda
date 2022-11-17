@@ -53,3 +53,17 @@ WHERE
         (SELECT codfilm
         FROM proiezioni AS P
         WHERE P.dataproiezione = '2004-12-25')
+
+/*7- titolo o genere dei film proiettati nelle sale di Napoli il giorno di natale del 2004*/
+SELECT
+    film.titolo, film.genere
+FROM 
+    film
+WHERE 
+    codfilm  IN
+        (SELECT codfilm
+        FROM proiezioni AS P
+            JOIN sale AS S
+                ON P.codsala = S.codsala
+        WHERE P.dataproiezione = '2004-12-25'
+        AND S.citta = 'Napoli')
