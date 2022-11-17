@@ -98,3 +98,14 @@ FROM
         ON R.codattore = A.codattore
 WHERE A.nome = 'M.Mastroianni'
 OR A.nome = 'S. Loren'
+
+/*10- Titolo dei film in cui recitano "M. Mastroianni" e "S. Loren"*/
+SELECT film.titolo
+FROM 
+    film
+    JOIN recita AS R
+        ON film.codfilm = R.codfilm
+    JOIN attori AS A
+        ON R.codattore = A.codattore
+WHERE A.nome = 'M.Mastroianni'
+AND A.nome = 'S. Loren'
