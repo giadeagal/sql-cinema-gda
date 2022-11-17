@@ -69,12 +69,20 @@ WHERE
 
 /*8- nomi delle sale di Napoli in cui il giorno di natale 2004 è stato proiettato un film con "R.Williams" */
 
-SELECT 
-  /*LAVOTI IN CORSO */
-FROM 
-    film 
-    JOIN recita 
-    ON film.codfilm = recita.codfilm 
-    JOIN attori 
-    ON recita.codattore = attori.codattore
-WHERE attori.nome = 'R. Williams'
+SELECT sale.nome
+FROM sale
+WHERE sale.codsala IN (
+    SELECT P.codsala
+    FROM proiezioni AS P
+    WHERE P.dataproiezione = '2004-12-25'
+    AND P.codfilm IN (
+        SELECT 
+        film.codfilm
+        FROM 
+        film 
+        JOIN recita 
+            ON film.codfilm = recita.codfilm 
+        JOIN attori 
+            ON recita.codattore = attori.codattore
+        WHERE attori.nome = 'R. Williams'
+))
