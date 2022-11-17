@@ -55,8 +55,7 @@ WHERE
         WHERE P.dataproiezione = '2004-12-25')
 
 /*7- titolo o genere dei film proiettati nelle sale di Napoli il giorno di natale del 2004*/
-SELECT
-    film.titolo, film.genere
+SELECT film.titolo, film.genere
 FROM 
     film
 WHERE 
