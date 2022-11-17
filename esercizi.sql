@@ -34,3 +34,11 @@ WHERE
        film.annoproduzione > 1990)
 OR
     film.nazionalita LIKE '_rancese'
+
+/*5 - titoli dei film dello stesso autore di "Casablanca"*/
+SELECT film.titolo
+FROM film
+WHERE film.regista IN 
+    (SELECT film.regista
+    FROM film
+    WHERE film.titolo = 'Casablanca');
