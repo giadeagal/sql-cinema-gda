@@ -42,3 +42,14 @@ WHERE film.regista IN
     (SELECT film.regista
     FROM film
     WHERE film.titolo = 'Casablanca');
+
+/*6 - titolo o genere dei film proiettati nelle sale il giorno di natale del 2004*/
+SELECT
+    film.titolo, film.genere
+FROM 
+    film
+WHERE 
+    codfilm  IN
+        (SELECT codfilm
+        FROM proiezioni AS P
+        WHERE P.dataproiezione = '2004-12-25')
