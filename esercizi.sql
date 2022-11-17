@@ -87,3 +87,14 @@ WHERE sale.codsala IN (
             ON recita.codattore = attori.codattore
         WHERE attori.nome = 'R. Williams'
 ))
+
+/*9- Titolo dei film in cui recitano "M. Mastroianni" oppure "S. Loren"*/
+SELECT film.titolo
+FROM 
+    film
+    JOIN recita AS R
+        ON film.codfilm = R.codfilm
+    JOIN attori AS A
+        ON R.codattore = A.codattore
+WHERE A.nome = 'M.Mastroianni'
+OR A.nome = 'S. Loren'
