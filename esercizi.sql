@@ -139,3 +139,8 @@ WHERE sale.posti > 60
 AND sale.citta = 'Pisa'
 
 /*14- numero totale di posti a Pisa*/
+SELECT sum(sale.posti) AS totale
+FROM sale
+WHERE sale.citta = 'Pisa'
+
+/*15- numero totale di posti a Pisa*/
